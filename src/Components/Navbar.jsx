@@ -16,7 +16,7 @@ export default function Navbar() {
       <div className="container-fluid">
         <Link className="navbar-brand" to="/">
           <img
-            src="/logo-1.png"
+            src="./logo-1.png"
             alt="Logo"
             style={{ width: "70px", height: "55px" }}
           />
