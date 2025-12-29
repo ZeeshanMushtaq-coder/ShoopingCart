@@ -5,9 +5,19 @@ export default function Navbar() {
   const { state, dispatch } = useAuth();
   const navigate = useNavigate();
 
+  const closeNavbar = () => {
+    const navbar = document.getElementById("navbarSupportedContent");
+
+    if (navbar && navbar.classList.contains("show")) {
+      const bsCollapse = window.bootstrap.Collapse.getOrCreateInstance(navbar);
+      bsCollapse.hide(); // ✅ smooth animation
+    }
+  };
+
   const handleLogout = () => {
     dispatch({ type: "LOGOUT" });
     localStorage.removeItem("prime_store_state");
+    closeNavbar();
     navigate("/login");
   };
 
@@ -34,9 +44,13 @@ export default function Navbar() {
           <span className="navbar-toggler-icon" />
         </button>
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
+          <ul className="navbar-nav ms-auto mb-2 mb-lg-0 align-items-lg-center">
             <li className="nav-item position-relative fs-5 me-3">
-              <Link className="nav-link position-relative" to="/wishlist">
+              <Link
+                className="nav-link position-relative"
+                to="/wishlist"
+                onClick={closeNavbar}
+              >
                 WishList
                 {state.wishlist?.length > 0 && (
                   <span className="badge bg-warning text-danger position-absolute top-0 start-100 translate-middle badge-circle">
@@ -47,7 +61,11 @@ export default function Navbar() {
             </li>
 
             <li className="nav-item position-relative me-4">
-              <Link className="nav-link position-relative" to="/cartPage">
+              <Link
+                className="nav-link position-relative"
+                to="/cartPage"
+                onClick={closeNavbar}
+              >
                 <i className="fas fa-shopping-cart text-danger fs-2"></i>
                 {state.cart.length > 0 && (
                   <span className="badge bg-warning text-danger position-absolute top-0 start-100 translate-middle badge-circle">
