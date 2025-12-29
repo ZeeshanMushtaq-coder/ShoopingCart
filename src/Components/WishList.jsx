@@ -6,7 +6,7 @@ export default function WishList() {
   const navigate = useNavigate();
 
   return (
-    <div className="container mt-5">
+    <div className="container" style={{marginTop: "90px"}}>
       <h2 className="text-danger text-center">Your WishList</h2>
 
       {state.wishlist.length === 0 && (

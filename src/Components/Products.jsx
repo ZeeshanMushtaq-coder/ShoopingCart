@@ -94,7 +94,7 @@ export default function Products() {
 
   return (
     <div className="container">
-      <h2 className="text-danger text-center mt-5">Products</h2>
+      <h2 className="text-danger text-center" style={{marginTop: "90px"}}>Products</h2>
       <div className="row">
         {data.map((p) => (
           <ProductCard

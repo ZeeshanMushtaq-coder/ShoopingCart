@@ -11,7 +11,7 @@ export default function CartPage() {
   }, [state.cart]);
 
   return (
-    <div className="container mt-5">
+    <div className="container" style={{marginTop: "90px"}}>
       <h2 className="text-danger text-center mb-5">Your Selected Items</h2>
 
       {state.cart.length === 0 && (
